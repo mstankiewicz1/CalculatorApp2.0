@@ -1,15 +1,5 @@
 import React from 'react';
 
 
-const Result = (props) => {
+export const Result = props => <div className="result">{props.result}</div>;
 
-
-
-        return (
-            <div className="result">
-                {props.result}
-            </div>
-        )
-    };
-
-export default Result;

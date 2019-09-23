@@ -2,16 +2,17 @@ import React from 'react';
 import Button from './Button.jsx';
 import Result from './Result.jsx';
 import ClearButton from './ClearButton.jsx';
+import * as math from 'mathjs';
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
-        state = {
+        this.state = {
             result: ''
         };
-        
+
     this.addToResult = this.addToResult.bind(this);
     }
 
@@ -22,7 +23,15 @@ class App extends React.Component {
     };
 
     addToResult = val => {
+        this.setState({
+            result: this.state.result + val,
+        })
+    };
 
+    handleEqual = () => {
+      this.setState({
+            result: math.eval(this.state.result)
+      })
     };
 
 
@@ -32,28 +41,28 @@ class App extends React.Component {
                 <div className="calc-wrapper">
                     <Result result={this.state.result}/>
                     <div className="row">
-                        <Button>7</Button>
-                        <Button>8</Button>
-                        <Button>9</Button>
-                        <Button>/</Button>
+                        <Button handleClick={this.addToResult}>7</Button>
+                        <Button handleClick={this.addToResult}>8</Button>
+                        <Button handleClick={this.addToResult}>9</Button>
+                        <Button handleClick={this.addToResult}>/</Button>
                     </div>
                     <div className="row">
-                        <Button>4</Button>
-                        <Button>5</Button>
-                        <Button>6</Button>
-                        <Button>x</Button>
+                        <Button handleClick={this.addToResult}>4</Button>
+                        <Button handleClick={this.addToResult}>5</Button>
+                        <Button handleClick={this.addToResult}>6</Button>
+                        <Button handleClick={this.addToResult}>x</Button>
                     </div>
                     <div className="row">
-                        <Button>1</Button>
-                        <Button>2</Button>
-                        <Button>3</Button>
-                        <Button>+</Button>
+                        <Button handleClick={this.addToResult}>1</Button>
+                        <Button handleClick={this.addToResult}>2</Button>
+                        <Button handleClick={this.addToResult}>3</Button>
+                        <Button handleClick={this.addToResult}>+</Button>
                     </div>
                     <div className="row">
-                        <Button>.</Button>
-                        <Button>0</Button>
-                        <Button>=</Button>
-                        <Button>-</Button>
+                        <Button handleClick={this.addToResult}>.</Button>
+                        <Button handleClick={this.addToResult}>0</Button>
+                        <Button handleClick={() => this.handleEqual()}>=</Button>
+                        <Button handleClick={this.addToResult}>-</Button>
                     </div>
                     <div className="row">
                         <ClearButton handleClear={() => this.setState({ result: ''})}>Clear</ClearButton>
