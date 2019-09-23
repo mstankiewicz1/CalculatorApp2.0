@@ -2,6 +2,52 @@
     box-sizing: border-box;
 }
 
-h1 {
-    text-align: center;
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.result {
+    height: 4em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4em;
+    background-color: crimson;
+    color: coral;
+    padding: 0.5em;
+    outline: 1px solid yellow;
+}
+
+.calc-wrapper {
+    width: 400px;
+    height: 600px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.button-wrapper {
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.4em;
+    background-color: dimgrey;
+    color: red;
+    flex: 1;
+    outline: 1px solid green;
+}
+
+.operator {
+    background-color: chocolate;
+    color: darkblue;
 }

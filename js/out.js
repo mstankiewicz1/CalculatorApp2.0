@@ -22531,6 +22531,14 @@ var _react = __webpack_require__(49);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Button = __webpack_require__(190);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _Result = __webpack_require__(189);
+
+var _Result2 = _interopRequireDefault(_Result);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22543,21 +22551,127 @@ var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            result: ''
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(App, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "app" },
+                'div',
+                { className: 'app' },
                 _react2.default.createElement(
-                    "h1",
-                    null,
-                    "Dziala kalkulator 2.0"
+                    'div',
+                    { className: 'calc-wrapper' },
+                    _react2.default.createElement(_Result2.default, { result: this.state.result }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '7'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '8'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '9'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '/'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '4'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '5'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '6'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            'x'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '1'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '2'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '3'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '+'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '.'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '0'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '='
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            null,
+                            '-'
+                        )
+                    )
                 )
             );
         }
@@ -22567,6 +22681,66 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+/***/ }),
+/* 188 */,
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Result = function Result(props) {
+
+    return _react2.default.createElement(
+        "div",
+        { className: "result" },
+        props.result
+    );
+};
+
+exports.default = Result;
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isOperator = function isOperator(val) {
+    return !isNaN(val) || val === '.' || val === '=';
+};
+
+var Button = function Button(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'button-wrapper ' + (isOperator(props.children) ? null : "operator") },
+        props.children
+    );
+};
+
+exports.default = Button;
 
 /***/ })
 /******/ ]);
