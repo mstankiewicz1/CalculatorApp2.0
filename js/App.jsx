@@ -1,15 +1,29 @@
 import React from 'react';
 import Button from './Button.jsx';
 import Result from './Result.jsx';
-
+import ClearButton from './ClearButton.jsx';
 
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-    state = {
-        result: ''
+        state = {
+            result: ''
+        };
+        
+    this.addToResult = this.addToResult.bind(this);
+    }
+
+    handleClear = () => {
+      this.setState({
+          result: ''
+      })
     };
 
+    addToResult = val => {
+
+    };
 
 
     render() {
@@ -40,6 +54,9 @@ class App extends React.Component {
                         <Button>0</Button>
                         <Button>=</Button>
                         <Button>-</Button>
+                    </div>
+                    <div className="row">
+                        <ClearButton handleClear={() => this.setState({ result: ''})}>Clear</ClearButton>
                     </div>
                 </div>
             </div>
